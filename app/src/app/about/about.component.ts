@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
   template: `
     <h1>About</h1>
     <div>
-      GP
+      GP <button pButton type="button" label="Click"></button>
     </div>
     <pre>this.localState = {{ localState | json }}</pre>
   `

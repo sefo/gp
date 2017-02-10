@@ -258,6 +258,8 @@ module.exports = function (options) {
        */
       new CopyWebpackPlugin([
         { from: 'src/assets', to: 'assets' },
+        { from: 'node_modules/primeng/resources/primeng.min.css', to: 'assets/css/primeng.min.css' },
+        { from: 'node_modules/primeng/resources/themes/flick/theme.css', to: 'assets/css/primeng.flick.css' },
         { from: 'src/meta'}
       ]),
 
