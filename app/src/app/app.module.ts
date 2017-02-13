@@ -22,7 +22,7 @@ import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 // PRIMENG
 import { ButtonModule } from 'primeng/primeng';
-import { DataTableModule, SharedModule } from 'primeng/primeng';
+import { DataTableModule, SharedModule, DialogModule } from 'primeng/primeng';
 // COMPONENTS
 import { HomeComponent } from './home';
 import { AboutComponent } from './about';
@@ -57,6 +57,7 @@ type StoreType = {
     HttpModule,
     ButtonModule,
     DataTableModule,
+    DialogModule,
     SharedModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
   ],

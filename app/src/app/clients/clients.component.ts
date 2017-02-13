@@ -3,7 +3,8 @@ import {
   OnInit
 } from '@angular/core';
 import { ClientsService } from './clients.service';
-import { Client } from '../../models/client.interface';
+import { IClient } from '../../models/client.interface';
+import { Client } from '../../models/client.class';
 
 @Component({
   selector: 'clients',
@@ -16,6 +17,9 @@ import { Client } from '../../models/client.interface';
 export class ClientsComponent implements OnInit {
 
   private clients: Client[];
+  private client: Client;
+  private newClient: boolean;
+  private displayDialog: boolean;
 
   constructor(private clientsService: ClientsService) {}
 
@@ -24,6 +28,24 @@ export class ClientsComponent implements OnInit {
     this.clientsService.getAll().subscribe(
         res => this.clients = res
     );
+  }
+
+  private showDialogToAdd() {
+      this.newClient = true;
+      this.client = new Client();
+      this.displayDialog = true;
+  }
+
+  private saveClient() {
+      if (this.newClient) {
+          this.clients.push(this.client);
+      }
+      this.clientsService.createClient(this.client).subscribe(
+          res => console.log(res)
+      );
+      this.client = null;
+      this.newClient = false;
+      this.displayDialog = false;
   }
 
 }

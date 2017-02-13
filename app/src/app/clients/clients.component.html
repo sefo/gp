@@ -1,4 +1,9 @@
 <div class="card">
+    <p-header>
+        <div class="ui-helper-clearfix" style="width:100%">
+            <button type="button" pButton icon="fa-plus" style="float:left" (click)="showDialogToAdd()" label="Add"></button>
+        </div>
+    </p-header>
     <p-dataTable [value]="clients">
         <p-column field="name" header="Name" [filter]="true" filterPlaceholder="Search"></p-column>
         <p-column field="city" header="City" [filter]="true" filterPlaceholder="Search"></p-column>
@@ -7,3 +12,33 @@
         <p-column field="zip" header="Zip"></p-column>
     </p-dataTable>
 </div>
+
+<p-dialog header="Client Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true">
+    <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="client">
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-4"><label for="name">Name</label></div>
+            <div class="ui-grid-col-8"><input pInputText id="name" [(ngModel)]="client.name" /></div>
+        </div>
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-4"><label for="telephone">Telephone</label></div>
+            <div class="ui-grid-col-8"><input pInputText id="telephone" [(ngModel)]="client.telephone" /></div>
+        </div>
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-4"><label for="address">Address</label></div>
+            <div class="ui-grid-col-8"><input pInputText id="address" [(ngModel)]="client.address" /></div>
+        </div>
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-4"><label for="zip">Zip</label></div>
+            <div class="ui-grid-col-8"><input pInputText id="zip" [(ngModel)]="client.zip" /></div>
+        </div>
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-4"><label for="city">City</label></div>
+            <div class="ui-grid-col-8"><input pInputText id="city" [(ngModel)]="client.city" /></div>
+        </div>
+    </div>
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+            <button type="button" pButton icon="fa-check" (click)="saveClient()" label="Save"></button>
+        </div>
+    </p-footer>
+</p-dialog>
