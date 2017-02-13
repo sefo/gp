@@ -12,19 +12,14 @@ import { AppState } from './app.service';
     ''
   ],
   template: `
-    <nav>
-      <a [routerLink]=" ['./'] " routerLinkActive="active">
-        Index
-      </a>
-      <a [routerLink]=" ['./about'] " routerLinkActive="active">
-        About
-      </a>
-    </nav>
-
     <main>
       <router-outlet></router-outlet>
     </main>
-
+    <footer>
+      <a [routerLink]=" ['./about'] " routerLinkActive="active">
+        About
+      </a>
+    </footer>
     <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
   `
 })

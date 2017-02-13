@@ -8,13 +8,7 @@ import { ActivatedRoute } from '@angular/router';
   selector: 'about',
   styles: [`
   `],
-  template: `
-    <h1>About</h1>
-    <div>
-      GP <button pButton type="button" label="Click"></button>
-    </div>
-    <pre>this.localState = {{ localState | json }}</pre>
-  `
+  template: require('./about.component.html')
 })
 export class AboutComponent implements OnInit {
 
