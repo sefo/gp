@@ -20,9 +20,13 @@ import { ROUTES } from './app.routes';
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
+// PRIMENG
 import { ButtonModule } from 'primeng/primeng';
+import { DataTableModule, SharedModule } from 'primeng/primeng';
+// COMPONENTS
 import { HomeComponent } from './home';
 import { AboutComponent } from './about';
+import { ClientsComponent } from './clients';
 import { NoContentComponent } from './no-content';
 
 import '../styles/styles.scss';
@@ -44,6 +48,7 @@ type StoreType = {
     AppComponent,
     HomeComponent,
     AboutComponent,
+    ClientsComponent,
     NoContentComponent,
   ],
   imports: [
@@ -51,6 +56,8 @@ type StoreType = {
     FormsModule,
     HttpModule,
     ButtonModule,
+    DataTableModule,
+    SharedModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
   ],
   providers: [

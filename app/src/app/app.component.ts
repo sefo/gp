@@ -19,6 +19,9 @@ import { AppState } from './app.service';
       <a [routerLink]=" ['./about'] " routerLinkActive="active">
         About
       </a>
+      <a [routerLink]=" ['./clients'] " routerLinkActive="active">
+        Clients
+      </a>
     </footer>
     <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
   `
