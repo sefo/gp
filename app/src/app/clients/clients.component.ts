@@ -2,8 +2,8 @@ import {
   Component,
   OnInit
 } from '@angular/core';
-import { ClientsService } from "./clients.service";
-import { Client } from "../../models/client.interface";
+import { ClientsService } from './clients.service';
+import { Client } from '../../models/client.interface';
 
 @Component({
   selector: 'clients',
@@ -14,7 +14,7 @@ import { Client } from "../../models/client.interface";
 })
 
 export class ClientsComponent implements OnInit {
-  
+
   private clients: Client[];
 
   constructor(private clientsService: ClientsService) {}
@@ -22,9 +22,7 @@ export class ClientsComponent implements OnInit {
   public ngOnInit(): void {
     console.log('hello `Clients` component');
     this.clientsService.getAll().subscribe(
-        res => {
-            this.clients = res;
-        }
+        res => this.clients = res
     );
   }
 
