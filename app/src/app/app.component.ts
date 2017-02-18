@@ -4,6 +4,7 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import { AppState } from './app.service';
+import { AccessService } from './access/access.service';
 
 @Component({
   selector: 'app',
@@ -22,6 +23,9 @@ import { AppState } from './app.service';
       <a [routerLink]=" ['./clients'] " routerLinkActive="active">
         Clients
       </a>
+      <a [routerLink]=" ['./home'] " routerLinkActive="active">
+        Home
+      </a>
     </footer>
     <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
   `
@@ -30,7 +34,8 @@ export class AppComponent implements OnInit {
   public name = 'GP';
 
   constructor(
-    public appState: AppState
+    public appState: AppState,
+    private accessService: AccessService
   ) {}
 
   public ngOnInit() {

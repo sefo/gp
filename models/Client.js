@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-	var Utilisateur = sequelize.define("Client", {
+	var Client = sequelize.define("Client", {
 		id : {
 			type : DataTypes.INTEGER,
 			primaryKey: true,
@@ -30,5 +30,5 @@ module.exports = function(sequelize, DataTypes) {
 		tableName: 'client',
 		timestamps: false
 	});
-	return Utilisateur;
+	return Client;
 };

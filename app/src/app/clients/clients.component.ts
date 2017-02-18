@@ -26,7 +26,7 @@ export class ClientsComponent implements OnInit {
   public ngOnInit(): void {
     console.log('hello `Clients` component');
     this.clientsService.getAll().subscribe(
-        res => this.clients = res
+        (res) => this.clients = res
     );
   }
 
@@ -41,7 +41,7 @@ export class ClientsComponent implements OnInit {
           this.clients.push(this.client);
       }
       this.clientsService.createClient(this.client).subscribe(
-          res => console.log(res)
+          (res) => console.log(res)
       );
       this.client = null;
       this.newClient = false;

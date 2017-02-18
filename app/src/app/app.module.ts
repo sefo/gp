@@ -1,31 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import {
-  NgModule,
-  ApplicationRef
-} from '@angular/core';
-import {
-  removeNgStyles,
-  createNewHosts,
-  createInputTransfer
-} from '@angularclass/hmr';
-import {
-  RouterModule,
-  PreloadAllModules
-} from '@angular/router';
-
+import { NgModule, ApplicationRef } from '@angular/core';
+import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
+import { RouterModule, PreloadAllModules } from '@angular/router';
+import { AccessService } from './access/access.service';
+import { AuthHttp } from './auth-http';
+import { AuthGuard } from './auth-guard';
 import { ENV_PROVIDERS } from './environment';
 import { ROUTES } from './app.routes';
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 // PRIMENG
-import { ButtonModule } from 'primeng/primeng';
+import { ButtonModule, InputTextModule } from 'primeng/primeng';
 import { DataTableModule, SharedModule, DialogModule } from 'primeng/primeng';
 // COMPONENTS
 import { HomeComponent } from './home';
 import { AboutComponent } from './about';
+import { AccessComponent } from './access';
 import { ClientsComponent } from './clients';
 import { NoContentComponent } from './no-content';
 
@@ -48,6 +41,7 @@ type StoreType = {
     AppComponent,
     HomeComponent,
     AboutComponent,
+    AccessComponent,
     ClientsComponent,
     NoContentComponent,
   ],
@@ -56,6 +50,7 @@ type StoreType = {
     FormsModule,
     HttpModule,
     ButtonModule,
+    InputTextModule,
     DataTableModule,
     DialogModule,
     SharedModule,
@@ -63,7 +58,10 @@ type StoreType = {
   ],
   providers: [
     ENV_PROVIDERS,
-    APP_PROVIDERS
+    APP_PROVIDERS,
+    AccessService,
+    AuthHttp,
+    AuthGuard
   ]
 })
 export class AppModule {
