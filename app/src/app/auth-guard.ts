@@ -12,15 +12,15 @@ export class AuthGuard implements CanActivate {
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot): Observable<boolean> {
 
-    return this.accessService.getAuthConnexion().map(
-        (result) => {
-            if (!result.logFailed) {
-                return true;
-            }
-        })
-        .catch(() => {
-            this.router.navigate(['/access']);
-            return Observable.of(false);
-        });
-  }
+        return this.accessService.getAuthConnexion().map(
+            (result) => {
+                if (!result.logFailed) {
+                    return true;
+                }
+            })
+            .catch(() => {
+                this.router.navigate(['/access']);
+                return Observable.of(false);
+            });
+    }
 }

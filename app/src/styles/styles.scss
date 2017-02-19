@@ -18,7 +18,16 @@
     button.ui-g-12 {
         float: none;
     }
+    input:not(:last-child) {
+        margin-bottom: 20px;
+        float: none;
+    }
+    input.ui-g-12 {
+        float: none;
+    }
 }
 .card.main-card {
     text-align: center;
+    width: 200px;
+    margin: 0 auto;
 }
